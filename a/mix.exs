@@ -18,20 +18,18 @@ defmodule A.MixProject do
   def application do
     [
       extra_applications: [:logger],
-      mod: {A.Application, []},
-      included_applications: [:b, :c]
+      mod: {A.Application, []}
     ]
   end
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:b, path: "../b"},
-      {:c, path: "../c"}
+      {:b, path: "../b", runtime: false}
     ]
   end
 
   def release do
-    []
+    [applications: [b: :load, c: :load]]
   end
 end
