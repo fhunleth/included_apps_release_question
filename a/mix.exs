@@ -18,6 +18,7 @@ defmodule A.MixProject do
   def application do
     [
       extra_applications: [:logger],
+      mod: {A.Application, []},
       included_applications: [:b, :c]
     ]
   end
